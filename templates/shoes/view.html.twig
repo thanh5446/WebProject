@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url({{ asset('img/shoes.jpg') }});
+            background-position: center;
+            background-size: cover;
+        }
+        .card {
+            width: 500px;
+            min-height: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,.3);
+            padding: 40px 30px;
+            margin-left: 35%;
+            margin-top: 70px;
+        }
+        .card__content h3{
+            font-size: 20px;
+            font-weight: 700;
+            text-align: justify;
+            padding: 0px 0px 0px 40px;
+            color: white;
+        }
+        .card__content p{
+            font-size: 15px;
+            font-weight: 550;
+            color: #FF6600;
+            text-align: justify;
+            padding: 0px 0px 0px 40px;
+        }
+        .btn{
+            background-color: #FF6600;
+            color: white;
+            margin-left: 140px;
+            border: none;
+            font-size: 20px;
+        }
+        .btn:hover{
+            transform: translateY(-5px);
+            background: #4c4957;
+            color: #ff6600;
+            transition: all 1s;
+        }
+    </style>
+    <div class="card">
+        <div class="card__content">
+            <h3>Name</h3>
+            <p>{{ shoes.name }}</p>
+            <h3>Category</h3>
+            <p>{{ shoes.category }}</p>
+            <h3>Inventory</h3>
+            <p>{{ shoes.inventory }}</p>
+            <h3>Price</h3>
+            <p>{{ shoes.price }}</p>
+            <h3>Supplier</h3>
+            <p>{{ shoes.supplier.name }}</p>
+            <a href="{{ path('shoes_list') }}" class="btn">Back to Shoes List</a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url({{ asset('img/shoes.jpg') }});
+            background-position: center;
+            background-size: cover;
+        }
+        .create {
+            width: 500px;
+            min-height: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,.3);
+            padding: 40px 30px;
+        }
+        .create h4{
+            color: #ff6600;
+            text-align: center;
+        }
+        .create input{
+            background-color: transparent;
+            color: #ff6600;
+        }
+        .create input:focus, .create input:valid{
+            border-color: #ff6600;
+            color: white;
+            background-color: transparent;
+        }
+        .create .form-group .btn {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 15px 20px;
+            text-align: center;
+            border: none;
+            background: #ff6600;
+            outline: none;
+            font-size: 1.2rem;
+            color: #FFF;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+        .create .form-group .btn:hover {
+            transform: translateY(-5px);
+            background: #4c4957;
+            color: #ff6600;
+        }
+
+    </style>
+    {{ form_start(form) }}
+    <div class="container create">
+        <div class="form-group">
+            <h4>Name</h4>
+            {{ form_widget(form.Name,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Name'
+                }
+            }) }}
+            <div class="invalid-feedback">
+                {{ form_errors(form.Name) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Birthdate</h4>
+            {{ form_widget(form.Birthdate,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Birthdate'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            <h4>Phone</h4>
+            {{ form_widget(form.Phone,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Phone'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            <h4>Address</h4>
+            {{ form_widget(form.Address,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Address'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            <input type="submit" name="Update_user" value="Update" class="btn btn-primary"/>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

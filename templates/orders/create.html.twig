@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url({{ asset('img/shoes.jpg') }});
+            background-position: center;
+            background-size: cover;
+        }
+        .create {
+            width: 500px;
+            min-height: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,.3);
+            padding: 40px 30px;
+        }
+        .create h4{
+            color: #ff6600;
+            text-align: center;
+        }
+        .create textarea.form-control{
+            height: calc(1.5em + .75rem + 2px);
+            background-color: transparent;
+            color: #ff6600;
+        }
+        .create textarea.form-control:focus .create textarea.form-control:valid {
+            border-color: #ff6600 !important;
+            outline: 0;
+            color: white;
+            background-color: transparent;
+        }
+        .create input{
+            background-color: transparent;
+            color: #ff6600;
+        }
+        .create input:focus, .create input:valid{
+            border-color: #ff6600;
+            color: white;
+            background-color: transparent;
+        }
+        .create .form-group .btn {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 15px 20px;
+            text-align: center;
+            border: none;
+            background: #ff6600;
+            outline: none;
+            font-size: 1.2rem;
+            color: #FFF;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+        .create .form-group .btn:hover {
+            transform: translateY(-5px);
+            background: #4c4957;
+            color: #ff6600;
+        }
+        #orders_create_User{
+            background-color: transparent;
+            color: #ff6600;
+        }
+    </style>
+    {{ form_start(form) }}
+    <div class="container create">
+        <div class="form-group">
+            <h4>Date</h4>
+            {{ form_widget(form.Date,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Date'
+                }
+            }) }}
+
+            <div class="invalid-feedback">
+                {{ form_errors(form.Date) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Quantity</h4>
+            {{ form_widget(form.Quantity,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': ' Quantity'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            <h4>Total</h4>
+            {{ form_widget(form.Total,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Total'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            <h4>Username</h4>
+            {{ form_widget(form.User,{
+                'attr':{
+                    'class':'form-control',
+                    'placeholder': 'Username'
+                }
+            }) }}
+        </div>
+        <div class="form-group">
+            <input type="submit" name="create_orders" value="Create" class="btn"/>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
